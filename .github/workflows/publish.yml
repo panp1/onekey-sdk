@@ -1,0 +1,41 @@
+name: Publish
+# Runs on a version tag (e.g. 0.1.1). PyPI and npm use Trusted Publishing (OIDC):
+# no tokens are stored. Configure once:
+#   PyPI: https://pypi.org/manage/account/publishing/  project onekey-sdk, owner panp1,
+#         repository onekey-sdk, workflow publish.yml, environment pypi
+#   npm:  package settings -> Trusted publisher -> GitHub, panp1/onekey-sdk, publish.yml
+on:
+  push:
+    tags: ["[0-9]*"]
+jobs:
+  pypi:
+    runs-on: ubuntu-24.04
+    environment: pypi
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: PYTHONPATH=src python -m unittest discover -s tests
+        working-directory: python
+      - run: pip install build && python -m build
+        working-directory: python
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/dist
+  npm:
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", registry-url: "https://registry.npmjs.org" }
+      - run: npm install -g npm@latest
+      - run: node --test
+        working-directory: node
+      - run: npm publish --access public --provenance
+        working-directory: node
