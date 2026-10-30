@@ -1,6 +1,6 @@
 {
   "name": "onekey-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read OneKey project secrets at runtime with a runner or personal token.",
   "type": "module",
   "main": "index.js",

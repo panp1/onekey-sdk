@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-10-30
+
+- Documentation: `projects()` needs a personal token; runner tokens receive `AUTHORIZATION_DENIED`.
+- Packages are published from version tags by GitHub Actions (PyPI and npm trusted publishing).
+
 ## 0.1.0 - 2026-10-30
 
 First release: read-side SDKs for Python (3.9+), Node.js (18+) and Java (17+).

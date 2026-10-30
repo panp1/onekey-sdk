@@ -1,7 +1,7 @@
 // OneKey SDK for Node.js (18+): fetch a project's secrets at runtime.
 // No dependencies; uses the global fetch. Values are returned, never logged.
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 const API = "/api/v1";
 
 export class OneKeyError extends Error {
