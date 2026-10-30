@@ -1,0 +1,15 @@
+{
+  "name": "onekey-sdk",
+  "version": "0.1.0",
+  "description": "Read OneKey project secrets at runtime with a runner or personal token.",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": { ".": { "types": "./index.d.ts", "default": "./index.js" } },
+  "files": ["index.js", "index.d.ts", "README.md"],
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test" },
+  "repository": { "type": "git", "url": "https://github.com/panp1/onekey-sdk.git", "directory": "node" },
+  "keywords": ["secrets", "onekey", "configuration"],
+  "license": "Apache-2.0"
+}

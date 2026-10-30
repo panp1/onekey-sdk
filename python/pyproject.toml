@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "onekey-sdk"
+version = "0.1.0"
+description = "Read OneKey project secrets at runtime with a runner or personal token."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+authors = [{ name = "OneKey" }]
+keywords = ["secrets", "onekey", "configuration"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/panp1/onekey-sdk"
+
+[tool.setuptools.packages.find]
+where = ["src"]
