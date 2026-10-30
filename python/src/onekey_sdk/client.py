@@ -129,7 +129,7 @@ class OneKeyClient:
         return self._get("/health")
 
     def projects(self) -> List[Project]:
-        """Projects the token can see (a runner token sees only its own)."""
+        """Projects the token can see. Needs a personal token; runner tokens get ``AUTHORIZATION_DENIED``."""
         return [
             Project(
                 id=p["id"],

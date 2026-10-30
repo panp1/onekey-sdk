@@ -82,7 +82,7 @@ export class OneKeyClient {
     return this._get("/health");
   }
 
-  /** Projects the token can see (a runner token sees only its own). */
+  /** Projects the token can see. Needs a personal token; runner tokens get AUTHORIZATION_DENIED. */
   async projects() {
     const rows = await this._get("/projects");
     return rows.map((p) => ({ id: p.id, name: p.name, createdAt: p.createdAt, updatedAt: p.updatedAt, myRole: p.myRole ?? null }));

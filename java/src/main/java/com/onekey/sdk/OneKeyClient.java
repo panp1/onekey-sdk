@@ -60,7 +60,7 @@ public final class OneKeyClient {
     return out;
   }
 
-  /** Projects the token can see (a runner token sees only its own). */
+  /** Projects the token can see. Needs a personal token; runner tokens get {@code AUTHORIZATION_DENIED}. */
   public List<Project> projects() {
     List<Project> out = new ArrayList<>();
     for (JsonNode p : get("/projects", null)) {

@@ -67,7 +67,7 @@ Every language exposes the same calls:
 | Call | Returns | Needs |
 | --- | --- | --- |
 | `health()` | product, version, apiVersion, status | any token |
-| `projects()` | projects the token can see | any token |
+| `projects()` | projects the token can see | personal token (runner tokens get `AUTHORIZATION_DENIED`) |
 | `groups(project)` | groups of the project | member or runner token |
 | `secretNames(project[, group])` | key, version, description, timestamps (no values) | member or runner token |
 | `runtime(project)` | every key and value of the project | runner token, or personal token with value access |
