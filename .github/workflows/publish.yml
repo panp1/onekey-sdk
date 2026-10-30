@@ -7,8 +7,14 @@ name: Publish
 on:
   push:
     tags: ["[0-9]*"]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Which registries to publish (both, pypi, npm)"
+        default: both
 jobs:
   pypi:
+    if: ${{ github.event_name == 'push' || inputs.target != 'npm' }}
     runs-on: ubuntu-24.04
     environment: pypi
     permissions:
@@ -26,6 +32,7 @@ jobs:
         with:
           packages-dir: python/dist
   npm:
+    if: ${{ github.event_name == 'push' || inputs.target != 'pypi' }}
     runs-on: ubuntu-24.04
     permissions:
       id-token: write
@@ -39,5 +46,8 @@ jobs:
       - run: npm install -g npm@latest
       - run: node --test
         working-directory: node
-      - run: npm publish --access public --provenance
+      # OIDC needs npm >= 11.5 and the id-token permission; print both facts
+      # so a failed exchange is diagnosable without secrets in the log.
+      - run: npm -v && test -n "$ACTIONS_ID_TOKEN_REQUEST_URL" && echo "id-token available"
+      - run: npm publish --access public
         working-directory: node
