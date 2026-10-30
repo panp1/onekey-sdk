@@ -9,7 +9,7 @@
   "files": ["index.js", "index.d.ts", "README.md"],
   "engines": { "node": ">=18" },
   "scripts": { "test": "node --test" },
-  "repository": { "type": "git", "url": "https://github.com/panp1/onekey-sdk.git", "directory": "node" },
+  "repository": { "type": "git", "url": "git+https://github.com/panp1/onekey-sdk.git", "directory": "node" },
   "keywords": ["secrets", "onekey", "configuration"],
   "license": "Apache-2.0"
 }
