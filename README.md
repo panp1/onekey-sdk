@@ -90,6 +90,16 @@ Errors carry `status` (HTTP status, `0` for network failures) and `code`, the st
 - Secret containers never include values in `repr`, `inspect` or `toString`; still, keep them out of logs.
 - Timeouts default to 10 seconds; pass `timeout` / `timeoutMs` / `Duration` to change them.
 
+## Releasing
+
+Bump the version in `python/pyproject.toml` + `python/src/onekey_sdk/{__init__,client}.py`, `node/package.json` + `node/index.js`, `java/pom.xml` + `OneKeyClient.java` (keep all three equal), add a CHANGELOG entry, then push a tag:
+
+```bash
+git tag 0.1.3 && git push origin main 0.1.3
+```
+
+`.github/workflows/publish.yml` runs the three test suites and publishes to PyPI and npm through trusted publishing (OIDC, no stored tokens; npm releases carry a provenance statement). JitPack builds the Java artifact from the same tag on first request. `gh workflow run publish.yml -f target=npm|pypi` republishes one registry for the current commit.
+
 ## Development
 
 ```bash
