@@ -6,7 +6,7 @@ Official client libraries for reading [OneKey](https://github.com/panp1/onekey) 
 | --- | --- | --- |
 | Python | `pip install onekey-sdk` ([python/](python/)) | Python 3.9+, no dependencies |
 | Node.js | `npm install onekey-sdk` ([node/](node/)) | Node 18+, no dependencies |
-| Java | JitPack `com.github.panp1.onekey-sdk:onekey-sdk:0.1.1` ([java/](java/)) | Java 17+, Jackson |
+| Java | JitPack `com.github.panp1.onekey-sdk:onekey-sdk:0.1.2` ([java/](java/)) | Java 17+, Jackson |
 
 The SDKs are read-side by design: they fetch values for the process that needs them and list metadata. Creating or changing secrets stays in the console and the `onekey` CLI.
 

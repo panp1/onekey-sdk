@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 - 2026-10-30
+
+- npm publishing from GitHub Actions uses the OIDC identity (trusted publishing) instead of a token placeholder.
+
 ## 0.1.1 - 2026-10-30
 
 - Documentation: `projects()` needs a personal token; runner tokens receive `AUTHORIZATION_DENIED`.

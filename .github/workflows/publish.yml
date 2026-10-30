@@ -32,8 +32,10 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      # No registry-url: it would write an _authToken placeholder to .npmrc and
+      # npm would use that instead of the OIDC identity (trusted publishing).
       - uses: actions/setup-node@v4
-        with: { node-version: "22", registry-url: "https://registry.npmjs.org" }
+        with: { node-version: "22" }
       - run: npm install -g npm@latest
       - run: node --test
         working-directory: node

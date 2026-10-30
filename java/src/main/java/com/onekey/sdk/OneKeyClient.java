@@ -25,7 +25,7 @@ import java.util.Map;
  * {@code ONEKEY_URL} and {@code ONEKEY_TOKEN} environment variables.
  */
 public final class OneKeyClient {
-  static final String VERSION = "0.1.1";
+  static final String VERSION = "0.1.2";
   private static final String API = "/api/v1";
   private static final ObjectMapper JSON = new ObjectMapper();
 

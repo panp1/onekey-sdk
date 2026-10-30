@@ -9,7 +9,7 @@ Via [JitPack](https://jitpack.io):
 <dependency>
   <groupId>com.github.panp1.onekey-sdk</groupId>
   <artifactId>onekey-sdk</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
 </dependency>
 ```
 

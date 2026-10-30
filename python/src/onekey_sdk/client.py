@@ -14,7 +14,7 @@ import urllib.request
 from dataclasses import dataclass, field
 from typing import Dict, Iterator, List, Mapping, Optional
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 _API = "/api/v1"
 
 
